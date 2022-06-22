@@ -440,6 +440,13 @@ ip route show               # Show IP addresses to router
 netstat -i|--interfaces     # List all network interfaces and in/out usage
 netstat -l|--listening      # List all open ports
 
+# Check if port is in use
+sudo lsof -i -P -n | grep LISTEN
+sudo netstat -tulpn | grep LISTEN
+sudo ss -tulpn | grep LISTEN
+sudo lsof -i:22             # see a specific port such as 22
+sudo nmap -sTU -O IP-address-Here
+
 traceroute example.com      # List all servers the network traffic goes through
 
 mtr -w|--report-wide example.com                                    # Continually list all servers the network traffic goes through
